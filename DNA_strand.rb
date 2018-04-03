@@ -1,4 +1,5 @@
 def dna_strand(dna)
+  # my solution
   compliment = dna.split("").map do |letter|
     case letter
     when "A"
@@ -13,7 +14,7 @@ def dna_strand(dna)
   end
 
   compliment.join.to_s
+
+  # slick solution from codewars
+  # dna.tr("ACTG", "TGAC")
 end
-
-
-puts dna_strand("TACCGA")
