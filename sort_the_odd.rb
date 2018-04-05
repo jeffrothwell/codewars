@@ -1,8 +1,8 @@
 def sort_array(source_array)
   sorted_odds = []
-  source_array.each { |i| sorted_odds << i if i % 2 != 0}
+  source_array.each { |num| sorted_odds << num if num.odd?}
   sorted_odds.sort!
-  source_array.each_with_index { |num, i| source_array[i] = sorted_odds.shift if num % 2 != 0 }
+  source_array.each_with_index { |num, i| source_array[i] = sorted_odds.shift if num.odd? }
   source_array
 end
 
