@@ -11,4 +11,7 @@ def find_missing_letter(arr)
   end
 end
 
-puts find_missing_letter(["a", "b", "d"])
+# Super Slick Solution
+# def find_missing_letter(arr)
+#   ((arr.first..arr.last).to_a - arr).first
+# end
