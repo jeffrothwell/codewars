@@ -1,20 +1,31 @@
 def mix(s1, s2)
   s1_freqs = freq_hash(s1)
   s2_freqs = freq_hash(s2)
+  puts s1_freqs
+  puts s2_freqs
   output_string_array = []
   commmon_letters_hash = {}
   s1_freqs.each do |key, value|
     if s2_freqs.keys.include?(key)
       if s2_freqs[key] > value
-        commmon_letters_hash[key] = {"2" => s2_freqs[key]}
+        unless commmon_letters_hash[s2_freqs[key]]
+          commmon_letters_hash[s2_freqs[key]] = {}
+        end
+        commmon_letters_hash[s2_freqs[key]][key] = "2"
       elsif s2_freqs[key] < value
-        commmon_letters_hash[key] = {"1" => value}
+        unless commmon_letters_hash[value]
+          commmon_letters_hash[value] = {}
+        end
+        commmon_letters_hash[value][key] = "1"
       else
-        commmon_letters_hash[key] = {"=" => value}
+        unless commmon_letters_hash[value]
+          commmon_letters_hash[value] = {}
+        end
+        commmon_letters_hash[value][key] = "="
       end
     end
   end
-  puts commmon_letters_hash.sort_by{ |_key, value| value.values.first }.reverse.to_h
+  puts commmon_letters_hash
 end
 
 def freq_hash(hash)
