@@ -12,7 +12,7 @@ function findOdd(A) {
   })
   for (var n in counts) {
     if (counts[n] % 2 !== 0) {
-      return n
+      return parseInt(n)
     }
   }
 }
